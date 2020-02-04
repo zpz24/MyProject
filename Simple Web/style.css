@@ -1,0 +1,83 @@
+.position{
+	position: relative;
+	top: 20px;
+
+}
+.box{
+    border-style: solid;
+    width: 530px;
+    height: 100px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    font-family: Georgia, serif;
+	text-align: center;	
+}
+
+.name{
+	margin-top: 13px;
+	margin-bottom: 3px;
+	color: black;
+	font-size: 45px;
+}
+
+.index{
+	margin: 0 auto;
+	font-style: italic;
+	font-size: 10px;
+	color: gray;
+	border-spacing: 18px 0px;
+}
+
+a{
+	text-decoration: none;
+}
+.gray{
+	color: gray;
+}
+.black{
+	color: black;
+}
+
+.middle{
+	font-family: Georgia, serif;
+	align: left;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.images{
+	margin-top: 60px;
+	border-spacing: 3px 0px;
+	margin-bottom: 20px;
+}
+
+img{
+	width: 300px;
+	height: 300px;
+	object-fit: cover;	
+}
+
+.bot{
+	font-style: italic;
+	color: gray;
+	font-family: Georgia, serif;
+	text-align: center;
+    font-size: 8px;
+    margin-bottom: 5px;
+}
+
+.sign{
+	border-spacing: 15px;
+	margin-bottom: 20px;
+}
+
+.sign img{
+	width: 15px;
+	height: 15px;
+	
+}
