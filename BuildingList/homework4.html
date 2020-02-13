@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> Homework4 </title>
+</head>
+<body style = "text-align: center">
+    <div style="margin-top: 100px">
+	<p style = "font-size: 10px; font-family: serif; font-weight: bold;">Enter URL for the list of tallest buildings JSON File </p>
+    <form name="buildform" method="POST" id="location">
+    <input type="text" name="URL" maxlength="255" size="30" />
+    <br />
+    <input type="button" name="submit" value="Submit Query"
+    onClick="viewJSON(this.form)" /> </form>
+    </div>
+
+    <script type="text/javascript">
+    	function viewJSON(what) { 
+    		var URL = what.URL.value;
+            function loadJSON(url) {
+                try{
+                    xmlreq = new XMLHttpRequest();
+                    xmlreq.open("GET",url,false); 
+                
+                    xmlreq.send();
+                }
+                catch(error){
+                    window.alert("No such file");
+                }
+                jsOb = JSON.parse(xmlreq.responseText);
+                return jsOb;
+            }
+            jsOb = loadJSON(URL); 
+            if(jsOb.Mainline.Table != null && jsOb.Mainline.Table.Row != null){
+                jsOb.onload=generateHTML(jsOb);
+                hWin = window.open("", "Homework4",   "height=800,width=1150"); 
+                hWin.document.write(html_text);
+                hWin.document.close();
+            }
+            else{
+                window.alert("No building in the file");
+            }
+        }
+        function generateHTML(jsOb) {
+            root=jsOb.DocumentElement;
+            html_text="<html><head><title>Largest Manufacturers by Production(2017)</title></head><body>";
+
+            html_text+="<table border='2'>";          
+            head = jsOb.Mainline.Table.Header.Data;
+            html_text+="<tbody>";
+            html_text+="<tr>"; 
+            
+            for(i=0;i<head.length;i++) {
+                html_text+="<th>"+head[i]+"</th>";
+            }        
+            html_text+="</tr>";
+
+            buildings=jsOb.Mainline.Table.Row; 
+            x=0; y=0;
+            for(i=0;i<buildings.length;i++){
+                buildingNodeList=buildings[i];
+                html_text+="<tr>"; 
+                var building_keys = Object.keys(buildingNodeList); 
+                for(j=0;j<building_keys.length;j++){
+                    bd_key = building_keys[j]; 
+                    if(buildingNodeList[bd_key] == null){
+                    	html_text+="<td></td>";
+                    	continue;
+                    }
+                    if(building_keys[j] == "Hubs"){
+                        hub = buildingNodeList[bd_key].Hub;
+                        html_text+="<td>"
+                        if(hub[0]!=null){
+                            html_text+= "<ul><li style><b>"+hub[0]+"</b></li>";
+                        
+                            for(k=1;k<hub.length;k++){
+                        	    html_text+="<li>"+hub[k]+"</li>";
+                            }
+                            html_text+= "</ul></td>"
+                        }
+                        else{
+                        	html_text+="</td>";
+                        }
+                    }
+                    else if(building_keys[j] == "HomePage"){
+                        html_text+="<td><a href = \""+buildingNodeList[bd_key]+"\">"+buildingNodeList[bd_key]+"</a></td>";
+ 
+                    }
+                    else if(building_keys[j]=="Logo") {
+                        html_text+="<td><img src= \""+ buildingNodeList[bd_key] +"\" width='150' height='150'></td>"; 
+                    } 
+                    else {
+                        html_text+="<td>"+ buildingNodeList[bd_key] +"</td>";
+                    } 
+                }
+
+                html_text+="</tr>"; 
+            }
+            html_text+="</tbody>"; 
+            html_text+="</table>";
+            html_text+= "</bo" + "<dy> </html>"; }
+
+    </script>
+</body>
