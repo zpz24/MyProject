@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework6</title>
+<!--    <link rel="stylesheet" type="text/css" href = "static/style.css">-->
+    <style type="text/css">
+        body {
+            font-family: Georgia, serif;
+        }
+
+        #news {
+            display: block;
+        }
+
+        .index {
+            position: fixed;
+            margin-top: 10px;
+            margin-left: 240px;
+            width: 150px;
+        }
+
+        .index ul {
+            margin: 0px;
+            list-style: none;
+            border: 1px solid gray;
+            padding-left: 0;
+            border-radius: 3px;
+        }
+
+        .index li {
+            padding: 10px;
+        }
+
+        .t_search:hover, .t_news:hover {
+            background: limegreen;
+            color: white;
+        }
+
+        .t_search {
+            background: rgb(245, 245, 245);
+            color: black;
+        }
+
+        .t_news {
+            background: rgb(96, 96, 96);
+            color: white;
+        }
+
+
+        /*slides*/
+        a {
+            text-decoration: none;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .top_slide {
+            position: absolute;
+            width: 450px;
+            height: 300px;
+            margin-left: 440px;
+            margin-top: 10px;
+
+        }
+
+        .slide img {
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            border-radius: 0;
+            left: 0;
+            top: 0;
+
+        }
+
+        h3 {
+            color: white;
+            padding: 2px 20px;
+            margin: 0;
+        }
+
+        .top_slide p {
+            color: white;
+            padding: 8px 2px;
+            margin: 0;
+        }
+
+        .slide_word {
+            word-wrap: break-word;
+            background: rgba(0, 0, 0, 0.4);
+            width: inherit;
+            position: absolute;
+            bottom: 0;
+        }
+
+
+        /*cloud word*/
+        .cloud {
+            position: absolute;
+            background: rgb(243, 243, 243);
+            width: 300px;
+            height: 300px;
+            margin-left: 900px;
+            margin-top: 10px;
+        }
+
+        /*CNN*/
+        .cnn {
+            width: 780px;
+            padding-top: 350px;
+            padding-left: 420px;
+        }
+
+        h1 {
+            margin: 0px 0px;
+        }
+
+        hr {
+            border-top: 1px dotted black;
+            margin: 1px;
+        }
+
+        .fox img, .cnn img {
+            height: 130px;
+            width: inherit;
+            position: absolute;
+            border-radius: 3px;
+            left: 0;
+            top: 0;
+        }
+
+        .cnn_news, .fox_news {
+
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .cnn_news1, .cnn_news2, .cnn_news3, .cnn_news4, .fox_news1, .fox_news2, .fox_news3, .fox_news4 {
+            border: 1px solid lightgray;
+            box-shadow: 1px 1px lightgray;
+            color: black;
+            margin-top: 20px;
+            width: 186px;
+            height: 420px;
+            position: absolute;
+            border-radius: 3px;
+            background: rgb(243, 243, 243);
+        }
+
+        .cnn_news1, .fox_news1 {
+            margin-left: 6px;
+        }
+
+        .cnn_news2, .fox_news2 {
+            margin-left: 200px;
+        }
+
+        .cnn_news3, .fox_news3 {
+            margin-left: 394px;
+        }
+
+        .cnn_news4, .fox_news4 {
+            margin-left: 584px;
+        }
+
+        .cnn_content1, .cnn_content2, .cnn_content3, .cnn_content4, .fox_content1, .fox_content2, .fox_content3, .fox_content4 {
+            position: absolute;
+            top: 140px;
+        }
+
+        h4 {
+            margin: 5px 2px 10px;
+            font-size: 15px;
+
+        }
+
+        .cnn_news p, .fox_news p {
+            font-size: 13px;
+            margin: 8px 2px;
+        }
+
+
+        /*Fox*/
+        .fox {
+            width: 780px;
+            padding-top: 450px;
+            padding-left: 420px;
+        }
+
+        /*Search*/
+        #search {
+            display: none;
+            padding-top: 10px;
+        }
+
+        .gray {
+            background: rgb(243, 243, 243);
+            width: 720px;
+            height: 170px;
+            margin-top: 0px;
+            margin-left: 430px;
+        }
+
+        .multi {
+            position: absolute;
+            margin-top: 20px;
+            margin-left: 8px;
+        }
+
+        #s_date, #e_date {
+            margin-left: 10px;
+
+        }
+
+        #cate, #submit {
+            margin-top: 30px;
+        }
+
+        #src {
+            width: 180px;
+        }
+
+        #clear {
+            margin-left: 20px;
+        }
+
+        .src_op {
+            display: none;
+        }
+
+        button {
+            background: rgb(240, 240, 240);
+            border: none;
+            font-size: 15px;
+            height: 30px;
+        }
+
+        button:hover {
+            background: limegreen;
+            color: white;
+        }
+
+        .more_news {
+            padding: 1px;
+        }
+
+        .slice {
+            cursor: pointer;
+            text-align: left;
+            position: relative;
+            margin-left: 450px;
+            margin-top: 10px;
+            width: 660px;
+            background: rgb(236, 236, 236);
+            border: 1px solid gray;
+            border-radius: 3px;
+            display: none;
+
+        }
+
+        .slice:hover {
+            box-shadow: 0px 10px 15px lightgray;
+        }
+
+        .slice img {
+            width: 60px;
+            height: 60px;
+            margin: 15px 0 15px 15px;
+            left: 0;
+            text-align: left;
+        }
+
+        .more_text {
+
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            margin-left: 10px;
+
+        }
+
+        .slice h3 {
+            color: black;
+            padding: 0;
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 14px;
+            width: 540px;
+        }
+
+        .slice p, .o_post {
+            font-size: 12px;
+        }
+
+        .slice p {
+            padding: 0;
+            margin-top: 2px;
+            margin-bottom: 3px;
+            width: 530px;
+        }
+
+        .cha {
+            position: absolute;
+            padding-right: 3px;
+            top: 2px;
+            right: 2px;
+            font-family: Arial, monospace;
+            display: none;
+            font-size: 12px;
+        }
+
+        .slice h3, .slice .unfold_p {
+            display: block;
+        }
+
+        .o_post {
+            margin-top: 7px;
+            margin-bottom: 8px;
+            width: 105px;
+        }
+
+        .author_info, .source_info, .date_info, .desc_info, .cha, .o_post, #no_results {
+            display: none;
+        }
+
+        #no_results {
+            width: 200px;
+            margin-left: 680px;
+        }
+
+        #show_m, #show_l {
+            display: none;
+            margin: 15px 330px 20px 715px;
+            width: 120px;
+            background: rgb(240, 240, 240);
+            border: none;
+            font-size: 15px;
+            height: 30px;
+            left: 730px;
+
+        }
+
+        select{
+            text-align: center;
+            text-align-last: center;
+        }
+
+        #show_m:hover, #show_l:hover {
+            background: limegreen;
+        }
+
+        /*image*/
+        img {
+            object-fit: cover;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+</head>
+<body style="text-align: center">
+
+<!--Index Button-->
+<div class = 'index'>
+    <ul>
+        <li class = 't_news' onclick="toNews()">Google News</li>
+        <li class = 't_search' onclick="toSearch()">Search</li>
+    </ul>
+</div>
+
+<!--News Page-->
+<div id = 'news'>
+    <!--Slide Part1-->
+    <div class="slide" style="display: block">
+    <a href="" target="_blank" class="slide_link">
+       <div class = 'top_slide'>
+           <img src="" class="slide_img">
+           <div class = 'slide_word'>
+               <h3 class="slide_h"></h3>
+               <p class="slide_p"></p>
+           </div>
+       </div>
+    </a>
+    </div>
+
+    <!--Slide Part2-->
+    <div class="slide">
+    <a href="" target="_blank" class="slide_link">
+       <div class = 'top_slide'>
+           <img src="" class="slide_img">
+           <div class = 'slide_word'>
+               <h3 class="slide_h"></h3>
+               <p class="slide_p"></p>
+           </div>
+       </div>
+    </a>
+    </div>
+
+    <!--Slide Part3-->
+    <div class="slide">
+    <a href="" target="_blank" class="slide_link">
+       <div class = 'top_slide'>
+           <img src="" class="slide_img">
+           <div class = 'slide_word'>
+               <h3 class="slide_h"></h3>
+               <p class="slide_p"></p>
+           </div>
+       </div>
+    </a>
+    </div>
+
+    <!--Slide Part4-->
+    <div class="slide">
+    <a href="" target="_blank" class="slide_link">
+       <div class = 'top_slide'>
+           <img src="" class="slide_img">
+           <div class = 'slide_word'>
+               <h3 class="slide_h"></h3>
+               <p class="slide_p"></p>
+           </div>
+       </div>
+    </a>
+    </div>
+
+    <!--Slide Part5-->
+    <div class="slide">
+    <a href="" target="_blank" class="slide_link">
+       <div class = 'top_slide'>
+           <img src="" class="slide_img">
+           <div class = 'slide_word'>
+               <h3 class="slide_h"></h3>
+               <p class="slide_p"></p>
+           </div>
+       </div>
+    </a>
+    </div>
+
+    <!--Word Cloud-->
+    <div class = 'cloud'>
+
+    </div>
+
+    <!--CNN News-->
+    <div class = 'cnn'>
+    <!--CNN Head-->
+        <h1>CNN</h1>
+        <hr class="cnn_hr">
+        <!--4 CNN News-->
+        <div class = 'cnn_news'>
+            <!--CNN News 1-->
+            <a href="" target="_blank" class="cnn_link">
+            <div class="cnn_news1">
+                <img src="" class="cnn_img">
+                <div class = "cnn_content1">
+                    <h4 class="cnn_h"></h4>
+                    <p class="cnn_p"></p>
+                </div>
+            </div>
+            </a>
+
+            <!--CNN News 2-->
+            <a href="" target="_blank" class="cnn_link">
+            <div class="cnn_news2">
+                <img src="" class="cnn_img">
+                <div class = "cnn_content2">
+                    <h4 class="cnn_h"></h4>
+                    <p class="cnn_p"></p>
+                </div>
+            </div>
+            </a>
+
+            <!--CNN News 3-->
+            <a href="" target="_blank" class="cnn_link">
+            <div class="cnn_news3">
+                <img src="" class="cnn_img">
+                <div class = "cnn_content3">
+                    <h4 class="cnn_h"></h4>
+                    <p class="cnn_p"></p>
+                </div>
+            </div>
+            </a>
+
+            <!--CNN News 4-->
+            <a href="" target="_blank" class="cnn_link">
+            <div class="cnn_news4">
+                <img src="" class="cnn_img">
+                <div class = "cnn_content4">
+                    <h4 class="cnn_h"></h4>
+                    <p class="cnn_p"></p>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <!--Fox News-->
+    <div class = 'fox'>
+        <h1>Fox News</h1>
+        <hr>
+
+        <!--4 Fox News-->
+        <div class = 'fox_news'>
+            <!--Fox News 1-->
+            <a href="" target="_blank" class="fox_link">
+            <div class="fox_news1">
+                <img src="" class="fox_img">
+                <div class = "fox_content1">
+                    <h4 class="fox_h"></h4>
+                    <p class="fox_p"></p>
+                </div>
+            </div>
+            </a>
+
+            <!--Fox News 2-->
+            <a href="" target="_blank" class="fox_link">
+            <div class="fox_news2">
+                <img src="" class="fox_img">
+                <div class = "fox_content2">
+                    <h4 class="fox_h"></h4>
+                    <p class="fox_p"></p>
+                </div>
+            </div>
+            </a>
+
+            <!--Fox News 3-->
+            <a href="" target="_blank" class="fox_link">
+            <div class="fox_news3">
+                <img src="" class="fox_img">
+                <div class = "fox_content3">
+                    <h4 class="fox_h"></h4>
+                    <p class="fox_p"></p>
+                </div>
+            </div>
+            </a>
+
+            <!--Fox News 4-->
+            <a href="" target="_blank" class="fox_link">
+            <div class="fox_news4">
+                <img src="" class="fox_img">
+                <div class = "fox_content4">
+                    <h4 class="fox_h"></h4>
+                    <p class="fox_p"></p>
+                </div>
+            </div>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+<!--Search Page-->
+<div id = 'search'>
+    <div class = 'gray'>
+        <form class="multi">
+
+            &nbsp&nbsp Keyword <span style="color: red">*</span> &nbsp&nbsp&nbsp
+            <input type="text" value="" name="keyword" id="keyword" required="required">
+            &nbsp&nbsp&nbsp&nbsp From <span style="color: red">*</span> &nbsp&nbsp&nbsp
+            <input type="date" name="start_date" id="s_date" required="required">
+            &nbsp&nbsp&nbsp&nbsp To <span style="color: red">*</span> &nbsp&nbsp&nbsp
+            <input type="date" name="end_date" id="e_date" required="required">
+            <br>
+
+<!--            Category Options-->
+            Category &nbsp&nbsp&nbsp&nbsp
+            <select id="cate" onchange="change_src()">
+                <option value="all"> all </option>
+                <option value="business"> business </option>
+                <option value="entertainment"> entertainment </option>
+                <option value="general"> general </option>
+                <option value="health"> health </option>
+                <option value="science"> science </option>
+                <option value="sports"> sports </option>
+                <option value="technology"> technology </option>
+            </select>
+
+<!--            Source Options-->
+            &nbsp&nbsp&nbsp&nbsp Source &nbsp&nbsp&nbsp&nbsp
+            <select id="src">
+
+            </select>
+            <br>
+
+<!--            Two Buttons-->
+            <button type="submit" id="submit"> Search </button>
+            <button type="button" id="clear"  onclick="clear_all()"> Clear </button>
+
+        </form>
+    </div>
+
+    <div class="more_news">
+        <p id="no_results">No results</p>
+        <!--        News 1-->
+        <div class="slice" onclick="unfold(0)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(0)">X</a>
+        </div>
+
+        <!--        News 2-->
+        <div class="slice" onclick="unfold(1)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(1)">X</a>
+        </div>
+
+        <!--        News 3-->
+        <div class="slice" onclick="unfold(2)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(2)">X</a>
+        </div>
+
+        <!--        News 4-->
+        <div class="slice" onclick="unfold(3)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(3)">X</a>
+        </div>
+
+        <!--        News 5-->
+        <div class="slice" onclick="unfold(4)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(4)">X</a>
+        </div>
+
+        <!--        News 6-->
+        <div class="slice" onclick="unfold(5)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(5)">X</a>
+        </div>
+
+        <!--        News 7-->
+        <div class="slice" onclick="unfold(6)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(6)">X</a>
+        </div>
+
+        <!--        News 8-->
+        <div class="slice" onclick="unfold(7)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(7)">X</a>
+        </div>
+
+        <!--        News 9-->
+        <div class="slice" onclick="unfold(8)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(8)">X</a>
+        </div>
+
+        <!--        News 10-->
+        <div class="slice" onclick="unfold(9)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(9)">X</a>
+        </div>
+
+                <!--        News 11-->
+        <div class="slice" onclick="unfold(10)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(10)">X</a>
+        </div>
+
+        <!--        News 12-->
+        <div class="slice" onclick="unfold(11)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(11)">X</a>
+        </div>
+
+        <!--        News 13-->
+        <div class="slice" onclick="unfold(12)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(12)">X</a>
+        </div>
+
+        <!--        News 14-->
+        <div class="slice" onclick="unfold(13)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(13)">X</a>
+        </div>
+
+        <!--        News 15-->
+        <div class="slice" onclick="unfold(14)">
+            <img src="" class="more_img">
+            <div class="more_text">
+            <h3 class="slice_h"></h3>
+            <p class="unfold_p"></p>
+            <p class="author_info"></p>
+            <p class="source_info"></p>
+            <p class="date_info"></p>
+            <p class="desc_info"></p>
+            <a href="" class="o_post">See Original Post</a>
+            </div>
+            <a class="cha" href="javascript:fold(14)">X</a>
+        </div>
+
+        <button type="button" id="show_m" onclick="show_more()">Show More</button>
+        <button type="button" id="show_l" onclick="show_less()">Show Less</button>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function load(url, linkName, imgName, hName, pName) {
+        var xmlreq = new XMLHttpRequest();
+        xmlreq.open('GET', url, true);
+        xmlreq.onreadystatechange = function setEle() {
+            if(xmlreq.readyState == 4){
+                if(xmlreq.status == 200){
+                   var jsOb = JSON.parse(xmlreq.responseText);
+                   var articles = jsOb.articles;
+                   var link = document.getElementsByClassName(linkName);
+                   var img = document.getElementsByClassName(imgName);
+                   var h = document.getElementsByClassName(hName);
+                   var p = document.getElementsByClassName(pName);
+                   for (var i = 0; i < articles.length; i++) {
+                       link[i].href = articles[i].url;
+                       img[i].src = articles[i].urlToImage;
+                       h[i].innerHTML = articles[i].title;
+                       p[i].innerHTML = articles[i].description;
+                   }
+                   if(url == '/api/news/top'){
+                       var wordList =jsOb.count;
+                       var margin = {top: 0, right: 0, bottom: 0, left: 0},
+                              width = 300,
+                              height = 300;
+
+                       var svg = d3.select(".cloud").append("svg")
+                            .attr("width", width - margin.left - margin.right)
+                            .attr("height", height - margin.top - margin.bottom)
+                          .append("g")
+                            .attr("transform",
+                                  "translate(" + margin.left + "," + margin.top + ")");
+
+                       var layout = d3.layout.cloud()
+                          .size([width, height])
+                          .words(wordList.map(function(d) { return {text: d.word, size: Math.sqrt(Math.sqrt((30 - wordList.indexOf(d))))*14 }; }))
+                          .padding(5)        //space between words
+                          .rotate(function() { return ~~(Math.random() * 2) * 90; })
+                          .fontSize(function(d) { return d.size; })      // font size of words
+                          .on("end", draw);
+                          layout.start();
+
+                       function draw(words) {
+                          svg
+                            .append("g")
+                              .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                              .selectAll("text")
+                                .data(words)
+                              .enter().append("text")
+                                .style("font-size", function(d) { return d.size+'px'; })
+                                .style("fill", "black")
+                                .attr("text-anchor", "middle")
+                                .style("font-family", "Impact")
+                                .attr("transform", function(d) {
+                                  return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                                })
+                                .text(function(d) { return d.text; });
+                        }
+                   }
+                }
+            }
+
+        };
+
+        xmlreq.send();
+
+    }
+
+
+    function ini_source(url) {
+        var src_sl = document.getElementById("src");
+        var xmlreq = new XMLHttpRequest();
+        xmlreq.open('GET', url, true);
+        xmlreq.onreadystatechange = function setEle() {
+            if (xmlreq.readyState == 4) {
+                if (xmlreq.status == 200) {
+                    var jsOb = JSON.parse(xmlreq.responseText);
+                    src_sl.options.length = 0;
+                    src_sl.options.add(new Option("all","all"));
+                    var index = 0;
+                    for(var i = 0; i < jsOb.sources.length; i++){
+                        if(index == 10){
+                            break;
+                        }
+                        src_sl.options.add(new Option(jsOb.sources[i].name, jsOb.sources[i].id));
+                        index ++;
+                    }
+                }
+            }
+        };
+        xmlreq.send();
+    }
+
+    var keyword = document.getElementById('keyword');
+    var s_date = document.getElementById('s_date');
+    var e_date = document.getElementById('e_date');
+    var cate = document.getElementById("cate");
+    var s_d;
+    var e_d;
+    window.onload = function () {
+        // Load Home Page
+        load('/api/news/cnn', 'cnn_link', 'cnn_img', 'cnn_h', 'cnn_p');
+        load('/api/news/fox-news', 'fox_link', 'fox_img', 'fox_h', 'fox_p');
+        load('/api/news/top', 'slide_link', 'slide_img', 'slide_h', 'slide_p');
+
+        // Set value of search page
+        keyword.value = "";
+
+        var date = new Date();
+        var year = date.getFullYear();
+        var s_day = date.getDate();
+        var s_mon = date.getMonth() + 1;
+        if(s_day >= 8){
+            s_day = s_day - 7;
+        }
+        else{
+            s_mon = s_mon - 1;
+            if(s_mon == 2 && s_mon % 4 == 0){
+                s_day = 29 + s_day - 7;
+            }
+            else if(s_mon == 2 && s_mon % 4 != 0){
+                s_day = 28 + s_day - 7;
+            }
+            else if(s_mon == 1 || s_mon == 3|| s_mon == 5 || s_mon == 7 || s_mon == 8
+                    || s_mon == 10){
+                s_day = 31 + s_day - 7;
+            }
+            else if(s_mon == 0){
+                year = year - 1;
+                s_mon =12;
+                s_day = 31 + s_day - 7;
+            }
+            else{
+                s_day = 30 + s_day - 7;
+            }
+        }
+        if(s_mon < 10){
+            s_mon = "0" + s_mon;
+        }
+        if(s_day < 10){
+            s_day = "0" + s_day;
+        }
+        s_d = year+ "-" + s_mon + "-" + s_day;
+
+        var e_mon = date.getMonth() + 1;
+        var e_day = date.getDate();
+        if(e_mon < 10){
+            e_mon = "0" + e_mon;
+        }
+        if(e_day < 10){
+            e_day = "0" + e_day;
+        }
+        e_d = date.getFullYear() + "-" + e_mon + "-" + e_day;
+        s_date.value = s_d;
+        e_date.value = e_d;
+
+        cate.options[0].selected = "selected";
+        ini_source('/api/source/initial');
+
+        // Set Slides
+        var timer = null;
+        var slide = document.getElementsByClassName('slide');
+        var index = 0;
+        function autoPlay() {
+
+            if (index > 4) {
+                index = 0;
+        }
+            for(var i = 0; i < 5; i++){
+                slide[i].style.display = 'none';
+            }
+            slide[index].style.display = 'block';
+            index ++;
+
+        }
+        timer = setInterval(autoPlay, 2000);
+
+        document.getElementsByClassName("multi")[0].onsubmit = function (e) {
+            var e = e || window.event;
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            sub();
+
+        }
+
+    };
+
+    // Set Index Switch Function
+    var news = document.getElementById('news');
+    var search = document.getElementById('search');
+    var index_n = document.getElementsByClassName('t_news');
+    var index_s = document.getElementsByClassName('t_search');
+    function toSearch() {
+        news.style.display = "none";
+        search.style.display = "block";
+
+        index_n[0].style.background = "rgb(245,245,245)";
+        index_n[0].style.color = "black";
+        index_n[0].onmouseover = function (){
+            index_n[0].style.background = "limegreen";
+            index_n[0].style.color = "white";
+        };
+        index_n[0].onmouseout = function (){
+            index_n[0].style.background = "rgb(245,245,245)";
+            index_n[0].style.color = "black";
+        };
+
+        index_s[0].style.background ="rgb(96,96,96)";
+        index_s[0].style.color = "white";
+        index_s[0].onmouseover = function (){
+            index_s[0].style.background = "limegreen";
+            index_s[0].style.color = "white";
+        };
+        index_s[0].onmouseout = function (){
+            index_s[0].style.background = "rgb(96,96,96)";
+            index_s[0].style.color = "white";
+        };
+    }
+
+    function toNews() {
+        news.style.display = "block";
+        search.style.display = "none";
+
+        index_n[0].style.background = "rgb(96,96,96)";
+        index_n[0].style.color = "white";
+        index_n[0].onmouseover = function (){
+            index_n[0].style.background = "limegreen";
+            index_n[0].style.color = "white";
+        };
+        index_n[0].onmouseout = function (){
+            index_n[0].style.background = "rgb(96,96,96)";
+            index_n[0].style.color = "white";
+        };
+
+        index_s[0].style.background ="rgb(245,245,245)";
+        index_s[0].style.color = "black";
+        index_s[0].onmouseover = function (){
+            index_s[0].style.background = "limegreen";
+            index_s[0].style.color = "white";
+        };
+        index_s[0].onmouseout = function (){
+            index_s[0].style.background = "rgb(245,245,245)";
+            index_s[0].style.color = "black";
+        };
+    }
+
+
+    // Change source list according to selected category
+    function change_src() {
+        var cate = document.getElementById("cate");
+        if(cate.value == "all"){
+            ini_source('/api/source/initial');
+        }
+        else {
+            var url = '/api/source/aim?category=' + cate.value;
+            ini_source(url);
+        }
+
+    }
+
+
+    // Set content of slices after submission
+    var slice = document.getElementsByClassName('slice');
+    var slice_h = document.getElementsByClassName("slice_h");
+    var p1 = document.getElementsByClassName("unfold_p");
+    var p_aut = document.getElementsByClassName("author_info");
+    var p_src = document.getElementsByClassName("source_info");
+    var p_dat = document.getElementsByClassName("date_info");
+    var p_des = document.getElementsByClassName("desc_info");
+    var cha = document.getElementsByClassName("cha");
+    var o_post = document.getElementsByClassName("o_post");
+    var show_m = document.getElementById("show_m");
+    var show_l = document.getElementById("show_l");
+    var slice_img = document.getElementsByClassName("more_img");
+    var no_res = document.getElementById("no_results");
+    var count = 0;
+    function sub() {
+        var s = s_date.value.split("-");
+        var e = e_date.value.split("-");
+        if( ( Number(s[0]) > Number(e[0]) ) || ( Number(s[0]) == Number(e[0]) && Number(s[1]) > Number(e[1]) )
+                 || ( Number(s[0]) == Number(e[0]) && Number(s[1]) == Number(e[1]) && Number(s[2]) > Number(e[2]) ) ){
+            alert("Incorrect time");
+        }
+        else{
+
+            var src = document.getElementById("src");
+            var url = "/api/news/search?keyword=" + keyword.value.toLowerCase() + "&st_date=" + s_date.value + "&ed_date=" +
+                e_date.value + "&source=" + src.value;
+            var xmlreq = new XMLHttpRequest();
+            xmlreq.open('GET', url, true);
+            xmlreq.onreadystatechange = function () {
+                if (xmlreq.readyState == 4) {
+                    if (xmlreq.status == 200) {
+                        var jsOb = JSON.parse(xmlreq.responseText);
+                        if (jsOb.status == "error") {
+                            alert(jsOb.message);
+                        }
+                        else {
+                            empty();
+                            var articles = jsOb.articles;
+                            if (articles.length == 0) {
+                                no_res.style.display = "block";
+                            }
+                            else {
+                                var len = articles.length;
+                                count = len;
+
+                                for (var j = 0; j < len; j++) {
+                                    slice_h[j].innerHTML = articles[j].title;
+                                    slice_img[j].src = articles[j].urlToImage;
+                                    var desc = articles[j].description.split(" ");
+                                    p1[j].innerHTML = desc[0];
+                                    for (var k = 1; k < 12; k++) {
+                                        p1[j].innerHTML += " ";
+                                        p1[j].innerHTML += desc[k];
+                                    }
+                                    p1[j].innerHTML += "...";
+                                    // console.log(p1[j]);
+                                    p_aut[j].innerHTML = "<b>Author: </b>" + articles[j].author;
+                                    p_src[j].innerHTML = "<b>Source: </b>" + articles[j].source.name;
+                                    p_dat[j].innerHTML = "<b>Date: </b>" + articles[j].publishedAt.substring(5, 7) + "/"
+                                        + articles[j].publishedAt.substring(8, 10) + "/"
+                                        + articles[j].publishedAt.substring(0, 4);
+                                    p_des[j].innerHTML = articles[j].description;
+                                    o_post[j].href = articles[j].url;
+                                    o_post[j].target = "_blank";
+                                }
+
+                                if (len > 5) {
+                                    for (var i = 0; i < 5; i++) {
+                                        slice[i].style.display = "block";
+                                    }
+                                    show_m.style.display = "block";
+                                }
+                                else {
+                                    for (var i = 0; i < len; i++) {
+                                        slice[i].style.display = "block";
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            };
+            xmlreq.send();
+
+        }
+
+    }
+
+    // Clear all slices and initial input data
+    function clear_all(){
+        keyword.value = "";
+        cate.options[0].selected = "selected";
+        ini_source('/api/source/initial');
+
+        s_date.value = s_d;
+        e_date.value = e_d;
+
+        empty();
+
+    }
+
+    function unfold(num) {
+        p1[num].style.display = "none";
+        p_aut[num].style.display = "block";
+        p_src[num].style.display = "block";
+        p_dat[num].style.display = "block";
+        p_des[num].style.display = "block";
+        cha[num].style.display = "block";
+        o_post[num].style.display = "block";
+    }
+
+    function fold(num) {
+        p1[num].style.display = "block";
+        p_aut[num].style.display = "none";
+        p_src[num].style.display = "none";
+        p_dat[num].style.display = "none";
+        p_des[num].style.display = "none";
+        cha[num].style.display = "none";
+        o_post[num].style.display = "none";
+    }
+
+    function show_more() {
+        for(var i = 5; i < count; i++){
+            slice[i].style.display = "block";
+        }
+        show_m.style.display = "none";
+        show_l.style.display = "block";
+
+    }
+
+    function show_less() {
+        for(var i = 5; i < count; i++){
+            slice[i].style.display = "none";
+        }
+        show_m.style.display = "block";
+        show_l.style.display = "none";
+
+    }
+
+    // Empty slices
+    function empty() {
+        for(var i = 0; i < 15; i++){
+                fold(i);
+        }
+        no_res.style.display = "none";
+        for(var j = 0; j < 15; j++){
+            slice[j].style.display = "none";
+        }
+        show_m.style.display = "none";
+        show_l.style.display = "none";
+    }
+
+</script>
+</body>
+</html>
