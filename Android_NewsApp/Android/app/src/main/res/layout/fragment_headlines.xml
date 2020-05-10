@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.headlines.HeadlinesFragment">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="#59438D"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#59438D"
+        app:tabTextColor="#59438D">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/world_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WORLD"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/business_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BUSINESS" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/politics_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="POLITICS" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/sports_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SPORTS" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tech_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TECHNOLOGY" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/science_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCIENCE" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <TextView
+        android:id="@+id/fetchTextHeadlines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fetch_news"
+        android:textColor="#A1A1A1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headlinesProgressBar" />
+
+    <ProgressBar
+        android:id="@+id/headlinesProgressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:indeterminateTint="#4A369C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/headlines_swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/headlines_news"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

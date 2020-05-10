@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dialog_card"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dialog_image"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/fallback_logo" />
+
+            <TextView
+                android:id="@+id/dialog_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/dialog_divider_hor"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#7153A7" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/dialog_twitter"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FFFFFF"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/bluetwitter" />
+
+                <View
+                    android:id="@+id/dialog_divider_ver"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_weight="1"
+                    android:background="#7153A7" />
+
+                <ImageButton
+                    android:id="@+id/dialog_empty_bookmark"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FFFFFF"
+                    android:scaleType="fitXY"
+                    android:tint="#C01F1F"
+                    app:srcCompat="@drawable/bookmark_border_24" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/dialog_saved_bookmark"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="191dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:scaleType="fitXY"
+            android:tint="#C01F1F"
+            android:visibility="visible"
+            app:srcCompat="@drawable/bookmark_black_24" />
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+.searchRes, .favorites{
+    font-size: 30px;
+    color: rgb(61,46,49);
+    margin-left: 20px;
+}
+
+
+.noBo{
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}
+
+.load{
+    font-size: 20px;
+
+}
+.loader{
+    text-align: center;
+    /*vertical-align: center;*/
+    margin-left: 10px;
+}
+
+/*.lo{*/
+/*    text-align: center;*/
+/*    vertical-align: center;*/
+/*}*/
+

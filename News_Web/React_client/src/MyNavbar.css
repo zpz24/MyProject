@@ -1,0 +1,32 @@
+.myNav{
+    background: linear-gradient(to right, rgb(19, 35, 65), rgb(58, 96, 178));
+
+}
+
+
+
+.homeBar{
+    color: white;
+}
+
+.switchPart{
+
+}
+
+.bookmark{
+    margin-right: 20px;
+    float: right;
+}
+
+.switchButton{
+    margin-right: 20px;
+}
+
+.nyTxt, .gTxt{
+    color: white;
+}
+
+.nyTxt{
+    margin-right: 20px;
+}
+

@@ -1,0 +1,37 @@
+.detail{
+
+    box-shadow: 0 5px 10px darkgray;
+    margin: 10px 10px 10px 10px;
+}
+.detailCon{
+    cursor: pointer;
+}
+
+.detailTitle{
+    font-size: 30px;
+    font-style: italic;
+    word-wrap: break-word;
+
+}
+.detailDate{
+    display: inline-block;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.detailIcon{
+    float: right;
+}
+
+
+.detailBookmark{
+    padding-left: 20px;
+}
+
+.moreArrow, .lessArrow{
+    float: right;
+}
+
+.desUnder{
+    margin-top: 10px;
+}

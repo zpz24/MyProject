@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">newsApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_headlines">Headlines</string>
+    <string name="title_trending">Trending</string>
+    <string name="title_bookmarks">Bookmarks</string>
+    <string name="card_picture">CardPicture</string>
+    <string name="fetch_news">Fetching News</string>
+    <string name="noBookmarks">No Bookmarked Articles</string>
+    <string name="articleImg">Article Image</string>
+    <string name="fullArticle">View Full Article</string>
+    <string name="search">Search</string>
+    <string name="no_chart">No chart data available</string>
+    <string name="trending_input">Enter Search Term</string>
+    <string name="corona">CoronaVirus</string>
+</resources>
